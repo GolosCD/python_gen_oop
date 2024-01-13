@@ -1,4 +1,18 @@
-a = 10.0
+class ElectricCar:
+    def __init__(self, color):
+        self._color = color
 
-if a in range(1,13):
-    print('Yes')
+    @property
+    def color(self):
+        raise AttributeError
+        
+    @color.setter
+    def color(self, color):
+        self._color = color
+
+
+car = ElectricCar('black')
+
+car.color = 'yellow'
+
+print(car.color)
