@@ -1,12 +1,5 @@
-a = 10
+import re 
 
-class c1:
-    @classmethod
-    def f(cls):
-        cls.a = a
-    
-    
-f = c1()
+a = 'AssertEqual'
 
-
-print(f.a)
+print(re.findall(r'[A-Z]',a))
