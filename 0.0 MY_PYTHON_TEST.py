@@ -1,11 +1,12 @@
-# print(int('FF',))
+a = 10
 
-# print(help(int))
+class c1:
+    @classmethod
+    def f(cls):
+        cls.a = a
+    
+    
+f = c1()
 
 
-# print(int.__abs__(-1))
-
-
-a = '00'
-
-print(int(a,16))
+print(f.a)
