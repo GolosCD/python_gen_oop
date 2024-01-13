@@ -1,18 +1,11 @@
-class ElectricCar:
-    def __init__(self, color):
-        self._color = color
+# print(int('FF',))
 
-    @property
-    def color(self):
-        raise AttributeError
-        
-    @color.setter
-    def color(self, color):
-        self._color = color
+# print(help(int))
 
 
-car = ElectricCar('black')
+# print(int.__abs__(-1))
 
-car.color = 'yellow'
 
-print(car.color)
+a = '00'
+
+print(int(a,16))
