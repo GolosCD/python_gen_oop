@@ -1,5 +1,9 @@
-import re 
+class ElectricCar:
+    def __init__(self, color):
+        self.color = color
 
-a = 'AssertEqual'
 
-print(re.findall(r'[A-Z]',a))
+car = ElectricCar('black')
+
+
+print(str(car)==repr(car))
