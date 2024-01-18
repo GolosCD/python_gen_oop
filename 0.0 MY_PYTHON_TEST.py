@@ -1,9 +1,4 @@
-class ElectricCar:
-    def __init__(self, color):
-        self.color = color
+a = [1,2,3]
+b = 'asdas'
 
-
-car = ElectricCar('black')
-
-
-print(str(car)==repr(car))
+print(f'{repr(b)}')
