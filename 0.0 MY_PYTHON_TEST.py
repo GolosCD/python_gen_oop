@@ -78,7 +78,36 @@
 
 
 # print(f'{sql_txt}\nminus\n{part_one} {table_name}')
+class ElectricCar:
+    def __init__(self, power_reserve):
+        self.power_reserve = power_reserve
+
+    def __eq__(self, other):
+        return self.power_reserve == other.power_reserve
+
+    def __lt__(self, other):
+        return self.power_reserve < other.power_reserve
+
+    def __gt__(self, other):
+        return self.power_reserve > other.power_reserve
+
+    def __le__(self, other):
+        return self.power_reserve <= other.power_reserve
+
+    def __ge__(self, other):
+        return self.power_reserve >= other.power_reserve
 
 
+print(ElectricCar(400) == ElectricCar(330)	)
 
-print(False==False)
+print(ElectricCar(400) < ElectricCar(330)	)
+
+print(ElectricCar(400) > ElectricCar(330)	)
+
+print(ElectricCar(400) <= ElectricCar(330)	)
+
+print(ElectricCar(400) >= ElectricCar(330)	)
+
+print(ElectricCar(330) <= ElectricCar(330)	)
+
+print(ElectricCar(330) >= ElectricCar(330))
