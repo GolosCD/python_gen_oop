@@ -79,9 +79,7 @@
 
 # print(f'{sql_txt}\nminus\n{part_one} {table_name}')
 
+mylist = [1,2,3,4,5,6,7,8,9]
 
-a = (3,3,3)
-
-b = (3,3,1)
-
-print(a>b)
+for i in range(5):
+    print(mylist[~i])
