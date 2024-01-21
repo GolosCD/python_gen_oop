@@ -6,60 +6,69 @@ class Matrix:
         self.cols = cols
         self.value = value
         self.matrix = [[value for _ in range(cols)] for _ in range(rows)]
-        self.matrix_t = [[value for _ in range(rows)] for _ in range(cols)]
-        self.flag = True
-    
     
     def get_value(self,row, col):
         return self.matrix[row][col]
         
     def set_value(self,row, col, value):
         self.matrix[row][col] = value
-        self.matrix_t[col][row] = value
-        #сбрасываем флаг - если меняли значения исходной матрицы
-        self.flag = False
 
         
     def __repr__(self):
         return f'Matrix({self.rows}, {self.cols})'
         
     def __str__(self,t=1):
-        
-        if t = 1:
-            matrix = self.matrix
-            tmp_row = self.rows
-        else:
-            matrix = self.matrix_t
-            tmp_row = self.cols
             
         matrix_for_print = ''
         
-        for i in range(tmp_row):
-            matrix_for_print+= f'{" ".join(map(str,matrix[i]))}\n'
+        for i in range(self.rows):
+            matrix_for_print+= f'{" ".join(map(str,self.matrix[i]))}\n'
             
         self.matrix_for_print = matrix_for_print[:-1]
         
         return self.matrix_for_print
 
     def __pos__(self):
-
-        return Matrix(self.rows,self.cols,self.value)
+        new_instanse = Matrix(self.rows,self.cols,self.value)
+        
+        for i in range(self.rows):
+            for j in range(self.cols):
+                new_instanse.set_value(i,j,self.get_value(i,j) )
+        
+        return new_instanse
+        
+        
     
     def __neg__(self):
-        if self.flag:
-            return Matrix(self.rows,self.cols,-self.value)
-        else:
+        new_instanse = Matrix(self.rows,self.cols,self.value)
+        
+        for i in range(self.rows):
+            for j in range(self.cols):
+                new_instanse.set_value(i,j,-self.get_value(i,j) )
+        
+        return new_instanse
             
-    def __invert__(self):               
-    
-        return Matrix.__str__(self,t=0)   
+    def __invert__(self):
+        new_instanse = Matrix(self.cols,self.rows,self.value)
+        
+        for i in range(self.rows):
+            for j in range(self.cols):
+                new_instanse.set_value(j,i,self.get_value(i,j) )
+                
+        return new_instanse        
 
     def __round__(self,n=0):
-        return Matrix(self.rows,self.cols,round(self.value,n))
+        new_instanse = Matrix(self.rows,self.cols,self.value)
+        
+        for i in range(self.rows):
+            for j in range(self.cols):
+                new_instanse.set_value(i,j,round(self.get_value(i,j),n) )
+        
+        return new_instanse  
+
         
         
-        
-'''        
+
 # INPUT DATA:
 
 # TEST_1:
@@ -71,6 +80,8 @@ matrix = Matrix(2, 3, 1)
 print(matrix)
 print()
 print(-matrix)
+print()
+print(~matrix)
 
 
 # TEST_3:
@@ -105,13 +116,14 @@ print(matrix)
 print()
 print(~matrix)
 
+
 # TEST_6:
 matrix1 = Matrix(4, 2)
 matrix2 = Matrix(10, 20, value=6)
 
 print(repr(matrix1))
 print(repr(matrix2))
-'''
+
 # TEST_7:
 matrix = Matrix(5, 10)
 
@@ -134,10 +146,10 @@ print(matrix)
 print()
 print(~matrix)
 print()
-# print(round(matrix, 2))
+print(round(matrix, 2))
 print()
 print(-matrix)
-'''
+
 # TEST_8:
 matrix = Matrix(2, 3, 1)
 
@@ -160,4 +172,4 @@ invert_matrix = ~matrix
 
 print(plus_matrix.cols, plus_matrix.rows)
 print(minus_matrix.cols, minus_matrix.rows)
-print(invert_matrix.cols, invert_matrix.rows)     ''' 
+print(invert_matrix.cols, invert_matrix.rows)
