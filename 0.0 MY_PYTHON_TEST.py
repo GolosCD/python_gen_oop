@@ -4,9 +4,17 @@ class ElectricCar:
 
     def __bool__(self):
         return self.power_reserve > 0
+    
+    def __eq__(self,other):
+        return self.power_reserve==other.power_reserve
 
 
 car1 = ElectricCar(400)
-car2 = ElectricCar(350)
 
-print(bool(car1) + bool(car2))
+# print(id(car1.power_reserve))
+
+car1.power_reserve = 340
+
+# print(id(car1.power_reserve))
+
+print(car1.__hash__)
