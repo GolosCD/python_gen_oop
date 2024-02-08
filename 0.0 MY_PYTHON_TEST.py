@@ -1,8 +1,7 @@
-a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+dict_m = dict((('a',1),('b',2)))
+
+print(dict_m)
 
 
-a = iter(a)
-
-v=c = next(a,None)
-
-print(v,c)
+for i in dict_m.items():
+    print(i)
