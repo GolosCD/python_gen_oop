@@ -1,0 +1,2 @@
+NFO: User logged in
+RROR: Invalid input data
