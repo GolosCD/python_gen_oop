@@ -1,15 +1,16 @@
 class MyClass:
-    test = 'Hello world'
-    
-    def print(self):
-        print('__class__.test',__class__.test)
-        print('MyClass.test',MyClass.test)
-        print('type(self).test',type(self).test)
-        print('type(self).test',type(self))
+    def __init__(self, a):
+        self._a = a
+
+    def __getattribute__(self, attr):
+        if attr == 'a':
+            return 8
+        else:
+            return object.__getattribute__(self, attr)
         
         
         
-g = MyClass()
+test = MyClass(5)
 
 
-g.print()
+print(test.a)
