@@ -1,23 +1,4 @@
-from abc import ABC, abstractmethod
+a= 0
+b=-1
 
-
-class MyTest(ABC):
-    
-    @classmethod
-    @abstractmethod
-    def wtf(cls,self): pass
-        
-        
-        
-class Test(MyTest):
-    
-    def wtf(self):
-        print('WTF!!!')
-    
-    
-    
-exampl = Test()
-
-exampl.wtf()
-
-    
+print(b<a)
