@@ -1,17 +1,20 @@
-a = '999999999999999'
-b = '7777777777777777777'
-res = '7778777777777777776'
+some_list = [1,2,3,4,]
+
+child_list = some_list
+
+child_list_two = some_list
+
+print(id(some_list)) #2252869161280
+
+print(id(child_list)) #2252869161280
+
+print(id(child_list_two)) #2252869161280
 
 
-def my_sum(a :str,b :str) ->int:
-    len_a = a.__len__
-    len_b = b.__len__
-    res = ''
-    for index,_ in enumerate(b):
-        if index<len_a:
-            c = a[~index]+b[~index]
-            if c<9:
-                res+=str(c)
-            else:    
-                
-        
+some_list[:] = ['a','b','c']
+
+print(id(some_list)) #2075339973888
+
+print(some_list) # ['a', 'b', 'c']
+
+print(child_list_two) # [1, 2, 3, 4]
