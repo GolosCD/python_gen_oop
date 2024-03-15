@@ -45,20 +45,20 @@ class Point:
             self.quadrant = 0
         elif self.x<0.0 and self.y>0.0:
             self.quadrant = 2
-        elif self.x>0 and self.y>0:
+        elif self.x>0.0 and self.y>0.0:
             self.quadrant = 1
-        elif self.x<0 and self.y<0:
+        elif self.x<0.0 and self.y<0.0:
             self.quadrant=3
         else:
             self.quadrant =4
             
     def symmetric_x(self):
-        return Point(self.x,self.y*-1.0)
+        return Point(self.x,self.y*-1)
         
     def symmetric_y(self):
-        return Point(self.x*-1.0,self.y)        
-        
-            
+        return Point(self.x*-1,self.y)    
+
+'''           
 # INPUT DATA:
 
 # TEST_1:
@@ -89,15 +89,15 @@ for x in range(-3, 4):
     for y in range(-3, 4):
         point = Point(x, y)
         print(point)
-
+'''
 # TEST_5:
 for x in range(-3, 4):
     for y in range(-3, 4):
         point = Point(x, y)
         print(point.symmetric_x())
-
+'''
 # TEST_6:
 for x in range(-3, 4):
     for y in range(-3, 4):
         point = Point(x, y)
-        print(point.symmetric_y())
+        print(point.symmetric_y())'''
