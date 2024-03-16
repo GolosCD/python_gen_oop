@@ -1,20 +1,26 @@
-some_list = [1,2,3,4,]
+from enum import auto, Flag
 
-child_list = some_list
-
-child_list_two = some_list
-
-print(id(some_list)) #2252869161280
-
-print(id(child_list)) #2252869161280
-
-print(id(child_list_two)) #2252869161280
+class MovieGenres(Flag):
+    ACTION = auto()
+    COMEDY = auto()
+    DRAMA = auto()
+    FANTASY = auto()
+    HORROR = auto()
 
 
-some_list[:] = ['a','b','c']
+class Movie:
+    def __init__(self, name, genre :MovieGenres):
+        self.name = name
+        self.genre = genre
+        
+    def in_genre(self,gener):
+        return gener in self.genre
+        
+    def __repr__(self):
+        return self.name
+        
+movie = Movie('The Lord of the Rings', MovieGenres.ACTION | MovieGenres.FANTASY)
 
-print(id(some_list)) #2075339973888
-
-print(some_list) # ['a', 'b', 'c']
-
-print(child_list_two) # [1, 2, 3, 4]
+print(movie.in_genre(MovieGenres.FANTASY))
+print(movie.in_genre(MovieGenres.COMEDY))
+print(movie.in_genre(MovieGenres.ACTION | MovieGenres.FANTASY))
