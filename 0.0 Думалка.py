@@ -1,26 +1,7 @@
-from enum import auto, Flag
+len_eng = len(range(ord('a'), ord('z') + 1)) # англ - нижний регистр
 
-class MovieGenres(Flag):
-    ACTION = auto()
-    COMEDY = auto()
-    DRAMA = auto()
-    FANTASY = auto()
-    HORROR = auto()
+len_ENG = len(range(ord('A'), ord('Z') + 1)) # англ - верхний регистр
 
+print(len_eng)
 
-class Movie:
-    def __init__(self, name, genre :MovieGenres):
-        self.name = name
-        self.genre = genre
-        
-    def in_genre(self,gener):
-        return gener in self.genre
-        
-    def __repr__(self):
-        return self.name
-        
-movie = Movie('The Lord of the Rings', MovieGenres.ACTION | MovieGenres.FANTASY)
-
-print(movie.in_genre(MovieGenres.FANTASY))
-print(movie.in_genre(MovieGenres.COMEDY))
-print(movie.in_genre(MovieGenres.ACTION | MovieGenres.FANTASY))
+print(len_ENG)
